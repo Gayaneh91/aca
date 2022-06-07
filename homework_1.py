@@ -21,7 +21,8 @@ class BankAccount:
         #TODO: add other data members if you need
 
     def __str__(self):
-        return f'{self.customer}\nCard number - {self.account_number}\nAccount balance - {self.balance}\nValid till - {self.valid_till}'
+        return f'{self.customer}\nCard number - {self.account_number}\nAccount balance - {self.balance}' \
+               f'\nValid till - {self.valid_till}'
 
     def deal(self, m):
         #TODO: make transaction , check if balance is enough
@@ -40,5 +41,6 @@ class BankAccount:
         self.p = (self.d / self.balance) * 100
 
 ba = BankAccount(p, m, dt)
+# ba.deposite(200, 6, 9)
 print(ba)
 
