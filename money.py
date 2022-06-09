@@ -17,7 +17,6 @@ class Money:
         return Money(self.currency, x)
 
     def __sub__(self, other):
-        print('Money sub')
         x = self.value
 
         if self.currency == other.currency:   #why ?
@@ -31,6 +30,12 @@ class Money:
             return False
         return Money(self.currency, x)
 
+    def __mul__(self, d):
+        return Money(self.currency, self.value * d)
 
-m = Money('USD ', 2500)
+
+#m1 = Money('USD', 2500)
+#m2 = Money('USD', 1000)
+#print(m1 + m2)
+
 # print(m)

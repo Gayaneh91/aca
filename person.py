@@ -9,5 +9,5 @@ class Person:
     def __str__(self):
         return f'{self.fn} {self.ln} - {self.g}, {self.a}, {self.p}'
 
-p = Person('Gag', 'Grigoryan', 'Male', 18, 'AD235689')
+# p = Person('Gag', 'Grigoryan', 'Male', 18, 'AD235689')
 # print(p)

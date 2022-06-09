@@ -5,9 +5,9 @@
 import random
 from datetime import date
 import string
-from classwork.date_time import Date, d
-from classwork.money import m
-from classwork.person import p
+from date_time import Date
+from money import Money
+from person import Person
 
 
 class BankAccount:
@@ -16,16 +16,12 @@ class BankAccount:
         self.__account_number = ''.join(random.choices(string.digits, k = 16))
         self.__balance = m
         self.__valid_till = d
-        self.m = None
-        self.d = None
-        self.p = None
         #TODO: add other data members if you need
-
-
 
     def __str__(self):
         return f'{self.__customer}\nCard number - {self.__account_number}\nAccount balance - {self.__balance}' \
                f'\nValid till - {self.__valid_till}'
+
     def get__customer(self):
          return self.__customer
 
@@ -50,9 +46,6 @@ class BankAccount:
     def set__valid_till(self, d):
         self.__valid_till = d
 
-
-
-
     def deal(self, m):
         #TODO: make transaction , check if balance is enough
         x = self.__balance - m
@@ -72,25 +65,28 @@ class BankAccount:
     def deposite(self, m, d, p):
         # money, duration, percent
         # TODO: count money after duration with p percent
-        x_1 = self.balance - self.m
-        self.d = x_1 + self.m
-        self.p = (self.d / self.balance) * 100
+        n = 0
+        if self.__balance - m:
+            n = m * ((1 + p/100)**d)
+
+        print("Your balance after {} with percent {} will be {}".format(d, p, self.__balance - m + n))
+
 
     def update(self, n):
         self.__valid_till.add_year(2)
 
+p = Person('Gag', 'Grigoryan', 'Male', 18, 'AD235689')
+m = Money('USD', 2500)
+d = Date(2023, 8, 6)
 
 ba = BankAccount(p, m, d)
-# print(ba)
-ba.set__account_number(x)  #Գեղամ ջան այստեղ որպես պարամետր ի՞նչ պիտի փողանցենք։
-print(ba.get__account_number())
-# ba.fill_balance(m)
-# vt = Date(2024, 6, 8)
-# ba.update(vt)
-# m_1 = ('USD', 2000)
-# ba.deal(m_1)
-# ba.fill_balance(m)
-# ba.deposite(600, 3, 60)
+#print(ba)
+#ba.fill_balance(m)
+vt = Date(2024, 6, 8)
+m_1 = Money('USD', 2000)
+#ba.deal(m_1)
+#ba.fill_balance(m)
+ba.deposite(m_1, 10, 10)
 
 
 

@@ -182,7 +182,7 @@ class DateTime:
         self.__date.add_day(x // 24)
 
 
-d = Date(2023, 8, 6)
+#d = Date(2023, 8, 6)
 # print(d)
 # t = Time(16, 29, 6)
 # print(t)
